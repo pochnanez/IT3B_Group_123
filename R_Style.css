@@ -6,6 +6,11 @@ body {
     margin: 0;
     padding: 40px 24px;
     background-color: #CAF4FF;
+    background-image: url("sssbg.png?v=2fae758291f9");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: #333333;
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -180,7 +185,8 @@ body {
     font-weight: bold;
 }
 
-.input-group input {
+.input-group input,
+#department {
     width: 100%;
     min-width: 0;
     height: 44px;
@@ -199,6 +205,7 @@ body {
 }
 
 input:focus,
+#department:focus,
 button:focus-visible,
 a:focus-visible {
     outline: 2px solid #333333;
@@ -259,7 +266,9 @@ a:focus-visible {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    gap: 24px;
+    width: fit-content;
+    margin-left: auto;
     padding: 14px 20px;
     background-color: #5AB2FF;
     color: #333333;
@@ -353,4 +362,3 @@ a:focus-visible {
         gap: 0;
     }
 }
-
