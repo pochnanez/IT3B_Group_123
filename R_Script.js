@@ -3,17 +3,12 @@ var confirmPassword = document.getElementById("confirmPassword");
 var passwordMessage = document.getElementById("passwordMessage");
 
 confirmPassword.addEventListener("input", function() {
-
     if (confirmPassword.value === "") {
         passwordMessage.textContent = "";
-    }
-    else if (password.value === confirmPassword.value) {
-        passwordMessage.textContent = "Passwords match.";
-        passwordMessage.style.color = "green";
-    }
-    else {
-        passwordMessage.textContent = "Passwords do not match.";
-        passwordMessage.style.color = "red";
+        return;
     }
 
+    var matches = password.value === confirmPassword.value;
+    passwordMessage.textContent = matches ? "Passwords match." : "Passwords do not match.";
+    passwordMessage.style.color = matches ? "green" : "red";
 });
