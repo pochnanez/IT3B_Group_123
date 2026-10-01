@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sun Son Solar</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#eefaff;color:#333}
+.page{width:350px;margin:60px auto;padding:30px;background:white;border-radius:15px;text-align:center;box-shadow:0 5px 20px #bbb}
+.logo{width:120px}
+input,button{width:100%;padding:12px;margin:7px 0;border-radius:6px}
+input{border:1px solid #ccc}
+button{border:0;background:#159bd3;color:white;font-weight:bold;cursor:pointer}
+button:hover{background:#f5d76e;color:#397c96}
+a{color:#159bd3;cursor:pointer}
+#error{color:red}
+
+#register,#home{display:none}
+
+nav{padding:12px 5%;background:white;display:flex;justify-content:space-between;align-items:center}
+nav img{width:80px}
+nav a{margin:8px;text-decoration:none}
+.hero{padding:80px 20px;text-align:center;background:linear-gradient(135deg,#fff4c4,#d8f5ff)}
+.hero img{width:160px}
+.hero h1{color:#159bd3;font-size:40px}
+section{text-align:center;padding:50px 20px}
+.card{display:inline-block;width:220px;padding:20px;margin:10px;background:white;border-radius:10px;box-shadow:0 3px 10px #ccc}
+
+.form{max-width:900px;margin:30px auto;padding:30px;background:white;border-radius:15px}
+.form input{width:48%}
+.full{width:100%!important}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="login" class="page">
+<img src="logo.png" class="logo">
+<h2>Admin Login</h2>
+
+<input id="loginUser" placeholder="Username">
+<input id="loginPass" type="password" placeholder="Password">
+<button onclick="login()">LOGIN</button>
+
+<p id="error"></p>
+<p>New admin? <a onclick="show('register')">Register</a></p>
+</div>
+
+<!-- REGISTRATION -->
+<div id="register" class="form">
+<img src="logo.png" class="logo">
+
+<h2>Create Admin Account</h2>
+
+<input id="first" placeholder="First Name">
+<input id="last" placeholder="Last Name">
+<input id="email" placeholder="Email">
+<input id="birth" type="date">
+
+<input id="username" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+<input id="confirm" type="password" placeholder="Confirm Password">
+
+<input id="address" class="full" placeholder="Address">
+
+<button onclick="register()">CREATE ACCOUNT</button>
+
+<p>Already have an account?
+<a onclick="show('login')">Login</a></p>
+</div>
+
+<!-- HOME -->
+<div id="home">
+
+<nav>
+<img src="logo.png">
+
+<div>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<button onclick="logout()">Logout</button>
+</div>
+</nav>
+
+<div class="hero">
+<img src="logo.png">
+<h1>Welcome to Sun Son Solar!</h1>
+<p>Clean energy. Brighter tomorrows.</p>
+</div>
+
+<section id="about">
+<h2>About Us</h2>
+<p>Sun Son Solar provides clean and reliable solar energy solutions.</p>
+</section>
+
+<section id="services">
+<h2>Our Services</h2>
+
+<div class="card">
+<h3> Solar Installation</h3>
+<p>Professional solar panel installation.</p>
+</div>
+
+<div class="card">
+<h3> Solar Systems</h3>
+<p>Customized solar energy solutions.</p>
+</div>
+
+<div class="card">
+<h3> Maintenance</h3>
+<p>Solar system maintenance and support.</p>
+</div>
+</section>
+
+</div>
+
+<script>
+function show(page){
+document.getElementById("login").style.display="none";
+document.getElementById("register").style.display="none";
+document.getElementById("home").style.display="none";
+document.getElementById(page).style.display=page=="login"?"block":"block";
+}
+
+function register(){
+if(password.value!=confirm.value){
+alert("Passwords do not match!");
+return;
+}
+
+localStorage.user=username.value;
+localStorage.pass=password.value;
+
+alert("Admin account created!");
+show("login");
+}
+
+function login(){
+if(loginUser.value==localStorage.user &&
+loginPass.value==localStorage.pass){
+show("home");
+}else{
+error.innerHTML="Invalid username or password.";
+}
+}
+
+function logout(){
+show("login");
+}
+</script>
+
+</body>
+</html>
+
