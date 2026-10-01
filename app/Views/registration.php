@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create an Account | Sun Son Solar</title>
-    <link rel="stylesheet" href="R_Style.css">
+    <link rel="stylesheet" href="<?= base_url('css/R_Style.css') ?>">
 </head>
 <body>
     <main class="registration-container">
 
         <aside class="welcome-panel">
             <div class="brand">
-                <img src="logo.png" alt="Sun Son Solar logo" class="logo">
+                <img src="<?= base_url('images/logo.png') ?>" alt="Sun Son Solar logo" class="logo">
                 <p>SUN SON SOLAR<br><span>Clean energy. Brighter tomorrows.</span></p>
             </div>
             <div class="welcome-message">
@@ -28,10 +28,9 @@
                 <p class="eyebrow">LET'S GET STARTED</p>
                 <h1>Create an account</h1>
                 <p>Enter your details below to join Sun Son Solar.</p>
-                <p class="required-note">All fields are required unless marked optional.</p>
             </header>
 
-            <form action="#" method="POST">
+            <form id="registrationForm" action="<?= base_url('register/save') ?>" method="POST">
                 <fieldset class="form-section">
                     <legend><span class="section-number">01</span> Personal details</legend>
                     <div class="form-row">
@@ -42,6 +41,7 @@
                         <div class="input-group">
                             <label for="middlename">Middle name</label>
                             <input id="middlename" name="middlename" placeholder="Enter middle name" autocomplete="additional-name" required>
+                            <p class="helper-text" id="departmentHelp">Leave N/A if not applicable</p>
                         </div>
                     </div>
                     <div class="form-row">
@@ -82,8 +82,8 @@
                     </div>
                     <div class="input-group">
                         <label for="department">Department</label>
-                        <select id="department" name="department" aria-describedby="departmentHelp" required>
-                            <option value="" disabled selected>Select Department</option>
+                        <select id="department" name="department" required>
+                            <option value="">Select Department</option>
                             <option value="Administration">Administration</option>
                             <option value="IT">IT</option>
                             <option value="Dispatch">Dispatch</option>
@@ -91,7 +91,7 @@
                             <option value="HR">HR</option>
                             <option value="Marketing">Marketing</option>
                             <option value="Sales">Sales</option>
-                            <option value="Customer Services">Customer Services</option>
+                            <option value="Customer Service">Customer Service</option>
                             <option value="N/A">N/A</option>
                         </select>
                         <p class="helper-text" id="departmentHelp">Select N/A if not applicable.</p>
@@ -107,12 +107,18 @@
                     <div class="form-row">
                         <div class="input-group">
                             <label for="password">Password</label>
-                            <input type="password" id="password" name="password" placeholder="Create a password" autocomplete="new-password" minlength="8" aria-describedby="passwordHelp" required>
+                            <div class="password-field">
+                                <input type="password" id="password" name="password" placeholder="Create a password" autocomplete="new-password" minlength="8" aria-describedby="passwordHelp" required>
+                                <button type="button" class="password-toggle" aria-controls="password" aria-label="Show password">Show</button>
+                            </div>
                             <p class="helper-text" id="passwordHelp">Use at least 8 characters.</p>
                         </div>
                         <div class="input-group">
                             <label for="confirmPassword">Confirm password</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" autocomplete="new-password" minlength="8" aria-describedby="passwordMessage" required>
+                            <div class="password-field">
+                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" autocomplete="new-password" minlength="8" aria-describedby="passwordMessage" required>
+                                <button type="button" class="password-toggle" aria-controls="confirmPassword" aria-label="Show confirm password">Show</button>
+                            </div>
                             <p id="passwordMessage" aria-live="polite"></p>
                         </div>
                     </div>
@@ -122,6 +128,6 @@
             </form>
         </div>
     </main>
-    <script src="public/js/R_Script.js"></script>
+    <script src="<?= base_url('js/R_Script.js') ?>"></script>
 </body>
 </html>

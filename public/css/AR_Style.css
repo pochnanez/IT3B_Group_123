@@ -1,0 +1,25 @@
+/* Reuse the normal registration design, background, and responsive layout. */
+@import url("R_Style.css");
+
+/* Admin registration validation messages. */
+.field-error {
+    margin: 6px 0 0;
+    color: #a12626;
+    font-size: 12px;
+}
+
+.field-error:empty {
+    display: none;
+}
+
+[aria-invalid="true"] {
+    border-color: #a12626 !important;
+}
+
+.registration-notice {
+    margin: 0 0 20px;
+    padding: 12px 14px;
+    border: 1px solid #A0DEFF;
+    border-radius: 8px;
+    background-color: #FFF9D0;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Registration | Sun Son Solar</title>
+        <link rel="stylesheet" href="public/css/AR_Style.css">
+    </head>
+    <body>
+        <main class="registration-container">
+            <aside class="welcome-panel">
+                <div class="brand">
+                    <img src="public/images/logo.png" alt="Sun Son Solar logo" class="logo">
+                    <p>SUN SON SOLAR<br><span>Administrator account creation</span></p>
+                </div>
+                <div class="welcome-message">
+                    <p class="eyebrow">AUTHORIZED ADMINISTRATOR ACCESS</p>
+                    <h2>Administrator access<br>starts here.</h2>
+                    <p>Register authorized Sun Son Solar personnel for administrator access.</p>
+                </div>
+                <div class="sun-illustration" aria-hidden="true">
+                    <div class="sun"></div>
+                </div>
+            </aside>
+            <div class="form-panel">
+                <header class="header">
+                    <p class="eyebrow">ADMINISTRATOR REGISTRATION</p>
+                    <h1>Admin Registration</h1>
+                    <p>Create an administrator account for authorized Sun Son Solar personnel.</p>
+                    <p class="required-note">For authorized administrator account creation only. All fields are required unless marked optional.</p>
+                </header>
+                <form id="adminRegistrationForm" data-register-url="http://localhost:8080/index.php/admin/register" action="http://localhost:8080/index.php/admin/register/save" method="POST">
+                    <fieldset class="form-section">
+                        <legend><span class="section-number">01</span> Personal Information</legend>
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="firstname">First Name</label>
+                                <input type="text" id="firstname" name="firstname" aria-describedby="firstnameError" placeholder="Enter first name" autocomplete="given-name" maxlength="50" data-name required>
+                                <p class="field-error" id="firstnameError" aria-live="polite"></p>
+                            </div>
+                            <div class="input-group">
+                                <label for="middlename">Middle Name (optional)</label>
+                                <input type="text" id="middlename" name="middlename" aria-describedby="middlenameError" placeholder="Enter middle name (optional)" autocomplete="additional-name" maxlength="50" data-name>
+                                <p class="field-error" id="middlenameError" aria-live="polite"></p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="lastname">Last Name</label>
+                                <input type="text" id="lastname" name="lastname" aria-describedby="lastnameError" placeholder="Enter last name" autocomplete="family-name" maxlength="50" data-name required>
+                                <p class="field-error" id="lastnameError" aria-live="polite"></p>
+                            </div>
+                            <div class="input-group">
+                                <label for="birthdate">Birthdate</label>
+                                <input type="date" id="birthdate" name="birthdate" aria-describedby="birthdateError" autocomplete="bday" required>
+                                <p class="field-error" id="birthdateError" aria-live="polite"></p>
+                            </div>
+                        </div>
+                        <fieldset class="gender-group" aria-describedby="genderError">
+                            <legend>Gender</legend>
+                            <div class="gender-options">
+                                <label><input type="radio" name="gender" value="Male" aria-describedby="genderError" required> Male</label>
+                                <label><input type="radio" name="gender" value="Female" aria-describedby="genderError" required> Female</label>
+                                <label><input type="radio" name="gender" value="Prefer&#x20;not&#x20;to&#x20;say" aria-describedby="genderError" required> Prefer not to say</label>
+                            </div>
+                            <p class="field-error" id="genderError" aria-live="polite"></p>
+                        </fieldset>
+                    </fieldset>
+                    <fieldset class="form-section">
+                        <legend><span class="section-number">02</span> Contact Information</legend>
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" aria-describedby="emailError" placeholder="Enter admin email address" autocomplete="email" maxlength="254" required>
+                                <p class="field-error" id="emailError" aria-live="polite"></p>
+                            </div>
+                            <div class="input-group">
+                                <label for="contact">Contact Number</label>
+                                <input type="tel" id="contact" name="contact" aria-describedby="contactError" placeholder="09XXXXXXXXX" autocomplete="tel" inputmode="numeric" pattern="09[0-9]{9}" minlength="11" maxlength="11" title="Enter 11 digits starting with 09" required>
+                                <p class="field-error" id="contactError" aria-live="polite"></p>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" aria-describedby="addressError" placeholder="Enter complete address" autocomplete="street-address" maxlength="255" required>
+                            <p class="field-error" id="addressError" aria-live="polite"></p>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-section account-section">
+                        <legend><span class="section-number">03</span> Account Credentials</legend>
+                        <div class="input-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" aria-describedby="usernameError" placeholder="Create admin username" autocomplete="username" minlength="4" maxlength="50" required>
+                            <p class="field-error" id="usernameError" aria-live="polite"></p>
+                        </div>
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="password">Password</label>
+                                <div class="password-field">
+                                    <input type="password" id="password" name="password" aria-describedby="passwordError" placeholder="Create admin password" autocomplete="new-password" minlength="8" maxlength="72" required>
+                                    <button type="button" class="password-toggle" aria-controls="password" aria-label="Show password" aria-pressed="false">Show</button>
+                                </div>
+                                <p class="field-error" id="passwordError" aria-live="polite"></p>
+                            </div>
+                            <div class="input-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <div class="password-field">
+                                    <input type="password" id="confirmPassword" name="confirmPassword" aria-describedby="confirmPasswordError" placeholder="Confirm admin password" autocomplete="new-password" minlength="8" maxlength="72" required>
+                                    <button type="button" class="password-toggle" aria-controls="confirmPassword" aria-label="Show confirm&#x20;password" aria-pressed="false">Show</button>
+                                </div>
+                                <p class="field-error" id="confirmPasswordError" aria-live="polite"></p>
+                            </div>
+                        </div>
+                        <p class="helper-text">Use at least 8 characters for the admin password (maximum 72 bytes).</p>
+                    </fieldset>
+                    <button type="submit" class="signup-btn">Create Admin Account <span aria-hidden="true">&rarr;</span></button>
+                </form>
+            </div>
+        </main>
+        <!-- JavaScript for Admin Registration validation and password visibility controls. -->
+        <script src="public/js/R_Script.js" defer></script>
+    </body>
+</html>
