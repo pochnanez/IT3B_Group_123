@@ -1,0 +1,6 @@
+<section class="panel narrow"><h2>Tell us what you need</h2><p>Your preferred time is a request. The company will review it before confirming a schedule.</p>
+<?php if(!$services): ?><p>No services are currently available for booking.</p><?php else: ?><form action="<?= site_url('bookings') ?>" method="post"><?= csrf_field() ?>
+<label for="service_id">Service</label><select id="service_id" name="service_id" required><option value="">Choose a service</option><?php foreach($services as $s): ?><option value="<?= (int)$s['id'] ?>"><?= esc($s['name']) ?><?= $s['price']!==null?' · PHP '.number_format((float)$s['price'],2):' · Pricing to be confirmed' ?></option><?php endforeach ?></select>
+<label for="preferred_at">Preferred date & time (Philippine time)</label><input type="datetime-local" id="preferred_at" name="preferred_at" required>
+<label for="address">Service address</label><input id="address" name="address" value="<?= esc($profile['address'],'attr') ?>" maxlength="255" required>
+<label for="notes">What should we know? (optional)</label><textarea id="notes" name="notes" maxlength="3000" rows="5"></textarea><button type="submit">Submit service request</button></form><?php endif ?></section>
